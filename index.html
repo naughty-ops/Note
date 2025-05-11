@@ -1093,11 +1093,9 @@
     <h3>Select Your Course</h3>
     <div class="selection-buttons">
     <button class="selection-btn active" data-course="all">All Courses</button>
-    <button class="selection-btn" data-course="engineering">Engineering</button>
-    <button class="selection-btn" data-course="medicine">Medicine</button>
-    <button class="selection-btn" data-course="law">Law</button>
-    <button class="selection-btn" data-course="business">Business</button>
-    <button class="selection-btn" data-course="arts">Arts & Sciences</button>
+    <button class="selection-btn" data-course="Computer Engineering">Computer Engineering</button>
+    <button class="selection-btn" data-course="Electronics Engineering">Electronics Engineering</button>
+    <button class="selection-btn" data-course="Electronics and Communication Engineering">Electronics and Communication Engineering</button>
     </div>
     </div>
     
@@ -1146,7 +1144,7 @@
             <div class="filter-bar">
                 <button class="filter-btn active">All Domains</button>
                 <button class="filter-btn">Computer Science</button>
-                <button class="filter-btn">Engineering</button>
+                <button class="filter-btn">Computer Engineering</button>
                 <button class="filter-btn">Business</button>
                 <button class="filter-btn">Design</button>
                 <button class="filter-btn">Research</button>
@@ -1401,61 +1399,848 @@
         document.addEventListener('DOMContentLoaded', function() {
         // Sample data structure
         const resourcesData = {
-        "engineering": {
+        "Computer Engineering": {
         "1": {
         "Mathematics": [
         {
-        "title": "Calculus Fundamentals",
+        "title": "Module 1: Complex Numbers & Straight Lines",
         "type": "Notes",
-        "author": "Prof. Smith",
+        "author": "SAHLA U",
         "year": "2023",
-        "description": "Complete notes covering all topics of semester 1 calculus with solved examples.",
-        "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/calculus-fundamentals.pdf"
+        "description": "Detailed notes on complex number operations, polar forms, and analytical geometry of lines.",
+        "image": "images/math-notes-1.jpg",
+        "file": "notes/complex-numbers-and-lines.pdf"
         },
         {
-        "title": "Linear Algebra Basics",
+        "title": "Module 2: Trigonometric Problem Solving",
         "type": "Notes",
-        "author": "Dr. Johnson",
+        "author": "SAHLA U",
         "year": "2023",
-        "description": "Introduction to linear algebra concepts and applications.",
-        "image": "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/linear-algebra.pdf"
+        "description": "Comprehensive problems and techniques in trigonometry including identities and equations.",
+        "image": "images/math-notes-2.jpg",
+        "file": "notes/trigonometry-problems.pdf"
+        },
+        {
+        "title": "Module 3: Limits & Basic Derivatives",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Foundational concepts of limits, continuity, and the first principles of differentiation.",
+        "image": "images/math-notes-3.jpg",
+        "file": "notes/limits-derivatives.pdf"
+        },
+        {
+        "title": "Module 4: Advanced Differentiation Techniques",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Advanced methods in differentiation including chain rule, product rule, and applications.",
+        "image": "images/math-notes-4.jpg",
+        "file": "notes/advanced-differentiation.pdf"
         }
         ],
-        "Physics": [
+        "Applied Physics": [
         {
-        "title": "Classical Mechanics",
+        "title": "Module 1: Measurements and Force",
         "type": "Notes",
-        "author": "Dr. Johnson",
-        "year": "2023",
-        "description": "Detailed lecture notes with diagrams for Classical Physics course.",
-        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/classical-mechanics.pdf"
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers the fundamentals of physical measurements, units, accuracy, and the concept of force. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics-notes-1.jpg",
+        "file": "notes/physics-module1-measurements-force.pdf"
+        },
+        {
+        "title": "Module 2: Rotational Motion",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed exploration of rotational dynamics, torque, angular momentum, and moment of inertia.",
+        "image": "images/physics-notes-2.jpg",
+        "file": "notes/physics-module2-rotational-motion.pdf"
+        },
+        {
+        "title": "Module 3: Work, Power, and Energy",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains concepts of work done, energy transformations, conservation laws, and power calculations.",
+        "image": "images/physics-notes-3.jpg",
+        "file": "notes/physics-module3-work-power-energy.pdf"
+        },
+        {
+        "title": "Module 4: Properties of Matter",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Comprehensive notes on elasticity, viscosity, surface tension, and fluid dynamics in matter.",
+        "image": "images/physics-notes-4.jpg",
+        "file": "notes/physics-module4-properties-of-matter.pdf"
+        }
+        ],
+        "Engineering Workshop": [
+        {
+        "title": "Electrical Wiring / Soldering",
+        "type": "Notes",
+        "author": "Abdulla",
+        "year": "2025",
+        "description": "Covers fundamental concepts and hands-on practices in electrical wiring systems and basic soldering techniques. Supervised by Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-electrical.jpg",
+        "file": "notes/workshop-electrical.pdf"
+        },
+        {
+        "title": "Carpentry",
+        "type": "Notes",
+        "author": "Sumesh E",
+        "year": "2025",
+        "description": "Detailed module on carpentry tools, joints, safety, and practical woodwork applications. Instructor: Trade Instructor Grade II in Carpentry.",
+        "image": "images/workshop-carpentry.jpg",
+        "file": "notes/workshop-carpentry.pdf"
+        },
+        {
+        "title": "Fitting",
+        "type": "Notes",
+        "author": "Santhosh Kumar M",
+        "year": "2025",
+        "description": "Explains hand tools, benchwork, filing, and fitting operations. Instructor: Workshop Instructor under Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-fitting.jpg",
+        "file": "notes/workshop-fitting.pdf"
+        },
+        {
+        "title": "Sheet Metal",
+        "type": "Notes",
+        "author": "Anand S Kumar",
+        "year": "2025",
+        "description": "Module on sheet metal tools, bending, joining, and fabrication techniques. Instructor: Guest Tradesman in Sheet Metal.",
+        "image": "images/workshop-sheetmetal.jpg",
+        "file": "notes/workshop-sheetmetal.pdf"
+        }
+        ],
+        "Applied Chemistry": [
+        {
+        "title": "Module 1: Atomic Structure & Chemical Bonding",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Explores the fundamentals of atomic theory, quantum numbers, periodic properties, and various types of chemical bonds. Instructor: Assistant Professor in Chemistry.",
+        "image": "images/chemistry-notes-1.jpg",
+        "file": "notes/chemistry-module1-atomic-structure.pdf"
+        },
+        {
+        "title": "Module 2: Water",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Covers the chemistry of water including hardness, treatment methods, and industrial water standards.",
+        "image": "images/chemistry-notes-2.jpg",
+        "file": "notes/chemistry-module2-water.pdf"
+        },
+        {
+        "title": "Module 3: Engineering Materials",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Detailed study of polymers, composites, and other materials used in engineering applications.",
+        "image": "images/chemistry-notes-3.jpg",
+        "file": "notes/chemistry-module3-engineering-materials.pdf"
+        },
+        {
+        "title": "Module 4: Electrochemistry and Corrosion",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Describes electrochemical cells, electrode potentials, and various corrosion mechanisms with prevention methods.",
+        "image": "images/chemistry-notes-4.jpg",
+        "file": "notes/chemistry-module4-electrochemistry.pdf"
         }
         ]
         },
         "2": {
-        "Data Structures": [
+        "Mathematics II": [
         {
-        "title": "Data Structures",
-        "type": "Question Paper",
-        "author": "Semester 2",
-        "year": "2022",
-        "description": "Previous year question paper with model answers for Data Structures and Algorithms.",
-        "image": "https://images.unsplash.com/photo-1551033406-611cf9a28f67?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "papers/data-structures-2022.pdf"
+        "title": "Module 1: Determinants & Matrices for Linear Systems",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Explains matrix operations, inverse, and solving linear systems using determinants and matrix methods. Instructor: Assistant Professor in Mathematics.",
+        "image": "images/maths2-1.jpg",
+        "file": "notes/maths2-module1-matrices.pdf"
+        },
+        {
+        "title": "Module 2: Scalars & Vectors",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Detailed notes on vector algebra, scalar and vector products, and their applications in geometry and physics.",
+        "image": "images/maths2-2.jpg",
+        "file": "notes/maths2-module2-vectors.pdf"
+        },
+        {
+        "title": "Module 3: Integration as Inverse of Differentiation",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Introduces integration as the reverse of differentiation with basic examples and physical interpretations.",
+        "image": "images/maths2-3.jpg",
+        "file": "notes/maths2-module3-integration.pdf"
+        },
+        {
+        "title": "Module 4: Integration Techniques & Differential Equations",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Focuses on advanced integration techniques and solving first-order differential equations.",
+        "image": "images/maths2-4.jpg",
+        "file": "notes/maths2-module4-differential-equations.pdf"
         }
         ],
-        "Electronics": [
+        "Applied Physics II": [
         {
-        "title": "Circuit Theory",
+        "title": "Module 1: Waves Motion and its Applications",
         "type": "Notes",
-        "author": "Prof. Williams",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains wave motion, harmonic motion, resonance, and practical applications of sound and vibrations. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics2-1.jpg",
+        "file": "notes/physics2-module1-waves.pdf"
+        },
+        {
+        "title": "Module 2: Optics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed concepts of reflection, refraction, interference, diffraction, and lens systems.",
+        "image": "images/physics2-2.jpg",
+        "file": "notes/physics2-module2-optics.pdf"
+        },
+        {
+        "title": "Module 3: Electromagnetism",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers electric fields, magnetic fields, electromagnetic induction, and AC/DC circuits.",
+        "image": "images/physics2-3.jpg",
+        "file": "notes/physics2-module3-electromagnetism.pdf"
+        },
+        {
+        "title": "Module 4: Modern Physics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Introduction to quantum theory, photoelectric effect, atomic models, and nuclear physics.",
+        "image": "images/physics2-4.jpg",
+        "file": "notes/physics2-module4-modern.pdf"
+        }
+        ],
+        "Environmental Science": [
+        {
+        "title": "Module 1: Ecosystem & Terminology",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Covers ecological principles, biotic and abiotic components, and key environmental terms.",
+        "image": "images/evs-1.jpg",
+        "file": "notes/evs-module1-ecosystem.pdf"
+        },
+        {
+        "title": "Module 2: Pollution & Control Measures",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Explains sources, types of pollution, and modern pollution control strategies.",
+        "image": "images/evs-2.jpg",
+        "file": "notes/evs-module2-pollution.pdf"
+        },
+        {
+        "title": "Module 3: Renewable Energy & Harvesting",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Discusses solar, wind, biomass, and other renewable energy sources and harvesting techniques.",
+        "image": "images/evs-3.jpg",
+        "file": "notes/evs-module3-renewable.pdf"
+        },
+        {
+        "title": "Module 4: Solid Waste & Environmental Management",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Focuses on solid waste classification, disposal, recycling, and management systems.",
+        "image": "images/evs-4.jpg",
+        "file": "notes/evs-module4-waste-management.pdf"
+        }
+        ],
+        "FEEE": [
+        {
+        "title": "Module 1: Resistor Combinations & AC Basics",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Explains series/parallel resistor networks, Ohm’s law, and basic alternating current principles.",
+        "image": "images/feee-1.jpg",
+        "file": "notes/feee-module1-resistors.pdf"
+        },
+        {
+        "title": "Module 2: AC Power & Electricity Bill Calculation",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Covers power factor, real/reactive/apparent power and calculating residential electricity bills.",
+        "image": "images/feee-2.jpg",
+        "file": "notes/feee-module2-ac-power.pdf"
+        },
+        {
+        "title": "Module 3: Passive Components & Color Coding",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Introduces capacitors, inductors, resistors and their identification using color codes.",
+        "image": "images/feee-3.jpg",
+        "file": "notes/feee-module3-components.pdf"
+        },
+        {
+        "title": "Module 4: Diodes, Transistors & Logic Gates",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Basics of PN junction diodes, BJT, and fundamental digital logic gate operations.",
+        "image": "images/feee-4.jpg",
+        "file": "notes/feee-module4-diodes-logic.pdf"
+        }
+        ],
+        "Problem Solving and Programming": [
+        {
+        "title": "Module 1: Algorithms & Program Translation",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers the basics of algorithms, flowcharts, and translation of programs into machine code.",
+        "image": "images/psp-1.jpg",
+        "file": "notes/psp-module1-algorithms.pdf"
+        },
+        {
+        "title": "Module 2: Control Structures in Programming",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Detailed concepts of loops, conditionals, and branching in programming languages.",
+        "image": "images/psp-2.jpg",
+        "file": "notes/psp-module2-control-structures.pdf"
+        },
+        {
+        "title": "Module 3: Modular Program Design",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Focuses on functions, modular design concepts, and reusability in structured programming.",
+        "image": "images/psp-3.jpg",
+        "file": "notes/psp-module3-modular.pdf"
+        },
+        {
+        "title": "Module 4: 1D & 2D Arrays in Programming",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Understanding single and multi-dimensional arrays, their declaration, access, and use cases.",
+        "image": "images/psp-4.jpg",
+        "file": "notes/psp-module4-arrays.pdf"
+        }
+        ],
+        "Engineering Workshop - Welding": [
+        {
+        "title": "Welding Trade",
+        "type": "Notes",
+        "author": "Workshop Faculty",
+        "year": "2025",
+        "description": "Covers fundamentals of welding, safety procedures, types of joints, and basic operations used in arc and gas welding.",
+        "image": "images/workshop-welding.jpg",
+        "file": "notes/welding-trade-notes.pdf"
+        }
+        ]
+        },
+        "3": {
+        "Database Management System": [
+        {
+        "title": "Module 1: Database Architecture & Data Models",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers DBMS architecture, data independence, and various data models like hierarchical, network, and relational.",
+        "image": "images/dbms-1.jpg",
+        "file": "notes/dbms-module1-architecture.pdf"
+        },
+        {
+        "title": "Module 2: SQL for Database Creation & Manipulation",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Includes SQL syntax for DDL, DML, and DCL, along with practical examples for queries, joins, and subqueries.",
+        "image": "images/dbms-2.jpg",
+        "file": "notes/dbms-module2-sql.pdf"
+        },
+        {
+        "title": "Module 3: Relational Design with ER Model",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Focuses on ER diagrams, entity sets, relationships, and translating ER models into relational schemas.",
+        "image": "images/dbms-3.jpg",
+        "file": "notes/dbms-module3-er-design.pdf"
+        },
+        {
+        "title": "Module 4: Normalization & Transaction Processing",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Explains functional dependencies, normalization up to BCNF, and core concepts of transactions and recovery.",
+        "image": "images/dbms-4.jpg",
+        "file": "notes/dbms-module4-normalization.pdf"
+        }
+        ],
+        "Computer Organisation": [
+        {
+        "title": "Module 1: Basic Operations & Memory of Computer Systems",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Introduces computer fundamentals, memory hierarchy, RAM, ROM, and basic data representation.",
+        "image": "images/co-1.jpg",
+        "file": "notes/co-module1-memory-basics.pdf"
+        },
+        {
+        "title": "Module 2: Input/Output Organisation",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers input/output mechanisms, I/O mapping, and DMA along with interrupt handling.",
+        "image": "images/co-2.jpg",
+        "file": "notes/co-module2-io.pdf"
+        },
+        {
+        "title": "Module 3: Working of Processing Unit",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Details the ALU, control unit, instruction cycle, and data path inside the CPU.",
+        "image": "images/co-3.jpg",
+        "file": "notes/co-module3-processing-unit.pdf"
+        },
+        {
+        "title": "Module 4: Working of Microprocessors",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Explains microprocessor architecture, instruction sets, and basic assembly-level programming.",
+        "image": "images/co-4.jpg",
+        "file": "notes/co-module4-microprocessors.pdf"
+        }
+        ],
+        "Programming in C": [
+        {
+        "title": "Module 1: Basic Programming Concepts in C",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Introduces C programming syntax, variables, data types, operators, and basic control statements.",
+        "image": "images/cprog-1.jpg",
+        "file": "notes/cprog-module1-basics.pdf"
+        },
+        {
+        "title": "Module 2: Arrays for Problem Solving",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Focuses on 1D and 2D arrays, their usage in problem solving, and common algorithm implementations.",
+        "image": "images/cprog-2.jpg",
+        "file": "notes/cprog-module2-arrays.pdf"
+        },
+        {
+        "title": "Module 3: Efficient Programming with Pointers",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers pointer basics, pointer arithmetic, dynamic memory allocation, and pointer-array relationships.",
+        "image": "images/cprog-3.jpg",
+        "file": "notes/cprog-module3-pointers.pdf"
+        },
+        {
+        "title": "Module 4: Structures, Unions & File Handling",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Explains user-defined data types, structure vs union, and basic file operations in C.",
+        "image": "images/cprog-4.jpg",
+        "file": "notes/cprog-module4-structures-files.pdf"
+        }
+        ],
+        "Digital Computer Fundamentals": [
+        {
+        "title": "Module 1: Number Systems & Binary Operations",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers decimal, binary, octal, and hexadecimal systems, along with binary arithmetic operations.",
+        "image": "images/dcf-1.jpg",
+        "file": "notes/dcf-module1-number-systems.pdf"
+        },
+        {
+        "title": "Module 2: Boolean Algebra & K-Map Simplification",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Focuses on Boolean laws, logic simplification techniques, and Karnaugh maps for circuit optimization.",
+        "image": "images/dcf-2.jpg",
+        "file": "notes/dcf-module2-boolean-kmap.pdf"
+        },
+        {
+        "title": "Module 3: Design of Combinational Circuits",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Introduces combinational logic circuits including adders, subtractors, multiplexers, and decoders.",
+        "image": "images/dcf-3.jpg",
+        "file": "notes/dcf-module3-combinational.pdf"
+        },
+        {
+        "title": "Module 4: Design of Sequential Circuits",
+        "type": "Notes",
+        "author": "Course Team",
+        "year": "2025",
+        "description": "Covers sequential logic, flip-flops, counters, and shift registers with design examples.",
+        "image": "images/dcf-4.jpg",
+        "file": "notes/dcf-module4-sequential.pdf"
+        }
+        ]
+        
+        }
+        },
+        "Electronics and Communication Engineering": {
+        "1": {
+        "Mathematics": [
+        {
+        "title": "Module 1: Complex Numbers & Straight Lines",
+        "type": "Notes",
+        "author": "SAHLA U",
         "year": "2023",
-        "description": "Comprehensive notes on basic circuit theory and analysis.",
-        "image": "https://images.unsplash.com/photo-1468495244123-6c6c332eeece?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/circuit-theory.pdf"
+        "description": "Detailed notes on complex number operations, polar forms, and analytical geometry of lines.",
+        "image": "images/math-notes-1.jpg",
+        "file": "notes/complex-numbers-and-lines.pdf"
+        },
+        {
+        "title": "Module 2: Trigonometric Problem Solving",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Comprehensive problems and techniques in trigonometry including identities and equations.",
+        "image": "images/math-notes-2.jpg",
+        "file": "notes/trigonometry-problems.pdf"
+        },
+        {
+        "title": "Module 3: Limits & Basic Derivatives",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Foundational concepts of limits, continuity, and the first principles of differentiation.",
+        "image": "images/math-notes-3.jpg",
+        "file": "notes/limits-derivatives.pdf"
+        },
+        {
+        "title": "Module 4: Advanced Differentiation Techniques",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Advanced methods in differentiation including chain rule, product rule, and applications.",
+        "image": "images/math-notes-4.jpg",
+        "file": "notes/advanced-differentiation.pdf"
+        }
+        ],
+        "Applied Physics": [
+        {
+        "title": "Module 1: Measurements and Force",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers the fundamentals of physical measurements, units, accuracy, and the concept of force. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics-notes-1.jpg",
+        "file": "notes/physics-module1-measurements-force.pdf"
+        },
+        {
+        "title": "Module 2: Rotational Motion",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed exploration of rotational dynamics, torque, angular momentum, and moment of inertia.",
+        "image": "images/physics-notes-2.jpg",
+        "file": "notes/physics-module2-rotational-motion.pdf"
+        },
+        {
+        "title": "Module 3: Work, Power, and Energy",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains concepts of work done, energy transformations, conservation laws, and power calculations.",
+        "image": "images/physics-notes-3.jpg",
+        "file": "notes/physics-module3-work-power-energy.pdf"
+        },
+        {
+        "title": "Module 4: Properties of Matter",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Comprehensive notes on elasticity, viscosity, surface tension, and fluid dynamics in matter.",
+        "image": "images/physics-notes-4.jpg",
+        "file": "notes/physics-module4-properties-of-matter.pdf"
+        }
+        ],
+        "Engineering Workshop": [
+        {
+        "title": "Electrical Wiring / Soldering",
+        "type": "Notes",
+        "author": "Abdulla",
+        "year": "2025",
+        "description": "Covers fundamental concepts and hands-on practices in electrical wiring systems and basic soldering techniques. Supervised by Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-electrical.jpg",
+        "file": "notes/workshop-electrical.pdf"
+        },
+        {
+        "title": "Carpentry",
+        "type": "Notes",
+        "author": "Sumesh E",
+        "year": "2025",
+        "description": "Detailed module on carpentry tools, joints, safety, and practical woodwork applications. Instructor: Trade Instructor Grade II in Carpentry.",
+        "image": "images/workshop-carpentry.jpg",
+        "file": "notes/workshop-carpentry.pdf"
+        },
+        {
+        "title": "Fitting",
+        "type": "Notes",
+        "author": "Santhosh Kumar M",
+        "year": "2025",
+        "description": "Explains hand tools, benchwork, filing, and fitting operations. Instructor: Workshop Instructor under Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-fitting.jpg",
+        "file": "notes/workshop-fitting.pdf"
+        },
+        {
+        "title": "Sheet Metal",
+        "type": "Notes",
+        "author": "Anand S Kumar",
+        "year": "2025",
+        "description": "Module on sheet metal tools, bending, joining, and fabrication techniques. Instructor: Guest Tradesman in Sheet Metal.",
+        "image": "images/workshop-sheetmetal.jpg",
+        "file": "notes/workshop-sheetmetal.pdf"
+        }
+        ],
+        "Applied Chemistry": [
+        {
+        "title": "Module 1: Atomic Structure & Chemical Bonding",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Explores the fundamentals of atomic theory, quantum numbers, periodic properties, and various types of chemical bonds. Instructor: Assistant Professor in Chemistry.",
+        "image": "images/chemistry-notes-1.jpg",
+        "file": "notes/chemistry-module1-atomic-structure.pdf"
+        },
+        {
+        "title": "Module 2: Water",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Covers the chemistry of water including hardness, treatment methods, and industrial water standards.",
+        "image": "images/chemistry-notes-2.jpg",
+        "file": "notes/chemistry-module2-water.pdf"
+        },
+        {
+        "title": "Module 3: Engineering Materials",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Detailed study of polymers, composites, and other materials used in engineering applications.",
+        "image": "images/chemistry-notes-3.jpg",
+        "file": "notes/chemistry-module3-engineering-materials.pdf"
+        },
+        {
+        "title": "Module 4: Electrochemistry and Corrosion",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Describes electrochemical cells, electrode potentials, and various corrosion mechanisms with prevention methods.",
+        "image": "images/chemistry-notes-4.jpg",
+        "file": "notes/chemistry-module4-electrochemistry.pdf"
+        }
+        ]
+        },
+        "2": {
+        "Mathematics II": [
+        {
+        "title": "Module 1: Determinants & Matrices for Linear Systems",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Explains matrix operations, inverse, and solving linear systems using determinants and matrix methods. Instructor: Assistant Professor in Mathematics.",
+        "image": "images/maths2-1.jpg",
+        "file": "notes/maths2-module1-matrices.pdf"
+        },
+        {
+        "title": "Module 2: Scalars & Vectors",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Detailed notes on vector algebra, scalar and vector products, and their applications in geometry and physics.",
+        "image": "images/maths2-2.jpg",
+        "file": "notes/maths2-module2-vectors.pdf"
+        },
+        {
+        "title": "Module 3: Integration as Inverse of Differentiation",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Introduces integration as the reverse of differentiation with basic examples and physical interpretations.",
+        "image": "images/maths2-3.jpg",
+        "file": "notes/maths2-module3-integration.pdf"
+        },
+        {
+        "title": "Module 4: Integration Techniques & Differential Equations",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Focuses on advanced integration techniques and solving first-order differential equations.",
+        "image": "images/maths2-4.jpg",
+        "file": "notes/maths2-module4-differential-equations.pdf"
+        }
+        ],
+        "Applied Physics II": [
+        {
+        "title": "Module 1: Waves Motion and its Applications",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains wave motion, harmonic motion, resonance, and practical applications of sound and vibrations. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics2-1.jpg",
+        "file": "notes/physics2-module1-waves.pdf"
+        },
+        {
+        "title": "Module 2: Optics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed concepts of reflection, refraction, interference, diffraction, and lens systems.",
+        "image": "images/physics2-2.jpg",
+        "file": "notes/physics2-module2-optics.pdf"
+        },
+        {
+        "title": "Module 3: Electromagnetism",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers electric fields, magnetic fields, electromagnetic induction, and AC/DC circuits.",
+        "image": "images/physics2-3.jpg",
+        "file": "notes/physics2-module3-electromagnetism.pdf"
+        },
+        {
+        "title": "Module 4: Modern Physics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Introduction to quantum theory, photoelectric effect, atomic models, and nuclear physics.",
+        "image": "images/physics2-4.jpg",
+        "file": "notes/physics2-module4-modern.pdf"
+        }
+        ],
+        "Environmental Science": [
+        {
+        "title": "Module 1: Ecosystem & Terminology",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Covers ecological principles, biotic and abiotic components, and key environmental terms.",
+        "image": "images/evs-1.jpg",
+        "file": "notes/evs-module1-ecosystem.pdf"
+        },
+        {
+        "title": "Module 2: Pollution & Control Measures",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Explains sources, types of pollution, and modern pollution control strategies.",
+        "image": "images/evs-2.jpg",
+        "file": "notes/evs-module2-pollution.pdf"
+        },
+        {
+        "title": "Module 3: Renewable Energy & Harvesting",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Discusses solar, wind, biomass, and other renewable energy sources and harvesting techniques.",
+        "image": "images/evs-3.jpg",
+        "file": "notes/evs-module3-renewable.pdf"
+        },
+        {
+        "title": "Module 4: Solid Waste & Environmental Management",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Focuses on solid waste classification, disposal, recycling, and management systems.",
+        "image": "images/evs-4.jpg",
+        "file": "notes/evs-module4-waste-management.pdf"
+        }
+        ],
+        "FEEE": [
+        {
+        "title": "Module 1: Resistor Combinations & AC Basics",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Explains series/parallel resistor networks, Ohm’s law, and basic alternating current principles.",
+        "image": "images/feee-1.jpg",
+        "file": "notes/feee-module1-resistors.pdf"
+        },
+        {
+        "title": "Module 2: AC Power & Electricity Bill Calculation",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Covers power factor, real/reactive/apparent power and calculating residential electricity bills.",
+        "image": "images/feee-2.jpg",
+        "file": "notes/feee-module2-ac-power.pdf"
+        },
+        {
+        "title": "Module 3: Passive Components & Color Coding",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Introduces capacitors, inductors, resistors and their identification using color codes.",
+        "image": "images/feee-3.jpg",
+        "file": "notes/feee-module3-components.pdf"
+        },
+        {
+        "title": "Module 4: Diodes, Transistors & Logic Gates",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Basics of PN junction diodes, BJT, and fundamental digital logic gate operations.",
+        "image": "images/feee-4.jpg",
+        "file": "notes/feee-module4-diodes-logic.pdf"
+        }
+        ],
+        "Engineering Workshop - Welding": [
+        {
+        "title": "Welding Trade",
+        "type": "Notes",
+        "author": "Workshop Faculty",
+        "year": "2025",
+        "description": "Covers fundamentals of welding, safety procedures, types of joints, and basic operations used in arc and gas welding.",
+        "image": "images/workshop-welding.jpg",
+        "file": "notes/welding-trade-notes.pdf"
+        }
+        ],
+        "Electronics Tinkering Workshop": [
+        {
+        "title": "Basic Electronics & Prototyping",
+        "type": "Notes",
+        "author": "Workshop Faculty",
+        "year": "2025",
+        "description": "Covers basic components like resistors, capacitors, transistors, breadboarding, circuit building, and troubleshooting techniques.",
+        "image": "images/electronics-tinkering.jpg",
+        "file": "notes/electronics-tinkering-notes.pdf"
         }
         ]
         },
@@ -1484,41 +2269,335 @@
         ]
         }
         },
-        "medicine": {
+        
+        "Electronics Engineering": {
         "1": {
-        "Anatomy": [
+        "Mathematics": [
         {
-        "title": "Human Anatomy Basics",
+        "title": "Module 1: Complex Numbers & Straight Lines",
         "type": "Notes",
-        "author": "Dr. Wilson",
+        "author": "SAHLA U",
         "year": "2023",
-        "description": "Detailed notes on human anatomy with labeled diagrams.",
-        "image": "https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/human-anatomy.pdf"
+        "description": "Detailed notes on complex number operations, polar forms, and analytical geometry of lines.",
+        "image": "images/math-notes-1.jpg",
+        "file": "notes/complex-numbers-and-lines.pdf"
+        },
+        {
+        "title": "Module 2: Trigonometric Problem Solving",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Comprehensive problems and techniques in trigonometry including identities and equations.",
+        "image": "images/math-notes-2.jpg",
+        "file": "notes/trigonometry-problems.pdf"
+        },
+        {
+        "title": "Module 3: Limits & Basic Derivatives",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Foundational concepts of limits, continuity, and the first principles of differentiation.",
+        "image": "images/math-notes-3.jpg",
+        "file": "notes/limits-derivatives.pdf"
+        },
+        {
+        "title": "Module 4: Advanced Differentiation Techniques",
+        "type": "Notes",
+        "author": "SAHLA U",
+        "year": "2023",
+        "description": "Advanced methods in differentiation including chain rule, product rule, and applications.",
+        "image": "images/math-notes-4.jpg",
+        "file": "notes/advanced-differentiation.pdf"
+        }
+        ],
+        "Applied Physics": [
+        {
+        "title": "Module 1: Measurements and Force",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers the fundamentals of physical measurements, units, accuracy, and the concept of force. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics-notes-1.jpg",
+        "file": "notes/physics-module1-measurements-force.pdf"
+        },
+        {
+        "title": "Module 2: Rotational Motion",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed exploration of rotational dynamics, torque, angular momentum, and moment of inertia.",
+        "image": "images/physics-notes-2.jpg",
+        "file": "notes/physics-module2-rotational-motion.pdf"
+        },
+        {
+        "title": "Module 3: Work, Power, and Energy",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains concepts of work done, energy transformations, conservation laws, and power calculations.",
+        "image": "images/physics-notes-3.jpg",
+        "file": "notes/physics-module3-work-power-energy.pdf"
+        },
+        {
+        "title": "Module 4: Properties of Matter",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Comprehensive notes on elasticity, viscosity, surface tension, and fluid dynamics in matter.",
+        "image": "images/physics-notes-4.jpg",
+        "file": "notes/physics-module4-properties-of-matter.pdf"
+        }
+        ],
+        "Engineering Workshop": [
+        {
+        "title": "Electrical Wiring / Soldering",
+        "type": "Notes",
+        "author": "Abdulla",
+        "year": "2025",
+        "description": "Covers fundamental concepts and hands-on practices in electrical wiring systems and basic soldering techniques. Supervised by Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-electrical.jpg",
+        "file": "notes/workshop-electrical.pdf"
+        },
+        {
+        "title": "Carpentry",
+        "type": "Notes",
+        "author": "Sumesh E",
+        "year": "2025",
+        "description": "Detailed module on carpentry tools, joints, safety, and practical woodwork applications. Instructor: Trade Instructor Grade II in Carpentry.",
+        "image": "images/workshop-carpentry.jpg",
+        "file": "notes/workshop-carpentry.pdf"
+        },
+        {
+        "title": "Fitting",
+        "type": "Notes",
+        "author": "Santhosh Kumar M",
+        "year": "2025",
+        "description": "Explains hand tools, benchwork, filing, and fitting operations. Instructor: Workshop Instructor under Workshop Foreman MANIKANDAN V K.",
+        "image": "images/workshop-fitting.jpg",
+        "file": "notes/workshop-fitting.pdf"
+        },
+        {
+        "title": "Sheet Metal",
+        "type": "Notes",
+        "author": "Anand S Kumar",
+        "year": "2025",
+        "description": "Module on sheet metal tools, bending, joining, and fabrication techniques. Instructor: Guest Tradesman in Sheet Metal.",
+        "image": "images/workshop-sheetmetal.jpg",
+        "file": "notes/workshop-sheetmetal.pdf"
+        }
+        ],
+        "Applied Chemistry": [
+        {
+        "title": "Module 1: Atomic Structure & Chemical Bonding",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Explores the fundamentals of atomic theory, quantum numbers, periodic properties, and various types of chemical bonds. Instructor: Assistant Professor in Chemistry.",
+        "image": "images/chemistry-notes-1.jpg",
+        "file": "notes/chemistry-module1-atomic-structure.pdf"
+        },
+        {
+        "title": "Module 2: Water",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Covers the chemistry of water including hardness, treatment methods, and industrial water standards.",
+        "image": "images/chemistry-notes-2.jpg",
+        "file": "notes/chemistry-module2-water.pdf"
+        },
+        {
+        "title": "Module 3: Engineering Materials",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Detailed study of polymers, composites, and other materials used in engineering applications.",
+        "image": "images/chemistry-notes-3.jpg",
+        "file": "notes/chemistry-module3-engineering-materials.pdf"
+        },
+        {
+        "title": "Module 4: Electrochemistry and Corrosion",
+        "type": "Notes",
+        "author": "Saidalavi K",
+        "year": "2025",
+        "description": "Describes electrochemical cells, electrode potentials, and various corrosion mechanisms with prevention methods.",
+        "image": "images/chemistry-notes-4.jpg",
+        "file": "notes/chemistry-module4-electrochemistry.pdf"
         }
         ]
         },
         "2": {
-        "Organic Chemistry": [
+        "Mathematics II": [
         {
-        "title": "Organic Chemistry",
-        "type": "Question Paper",
-        "author": "Semester 2",
-        "year": "2021",
-        "description": "Complete set of previous 5 years question papers for Organic Chemistry with solutions.",
-        "image": "https://images.unsplash.com/photo-1581094271901-8022df4466f9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "papers/organic-chemistry.pdf"
+        "title": "Module 1: Determinants & Matrices for Linear Systems",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Explains matrix operations, inverse, and solving linear systems using determinants and matrix methods. Instructor: Assistant Professor in Mathematics.",
+        "image": "images/maths2-1.jpg",
+        "file": "notes/maths2-module1-matrices.pdf"
+        },
+        {
+        "title": "Module 2: Scalars & Vectors",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Detailed notes on vector algebra, scalar and vector products, and their applications in geometry and physics.",
+        "image": "images/maths2-2.jpg",
+        "file": "notes/maths2-module2-vectors.pdf"
+        },
+        {
+        "title": "Module 3: Integration as Inverse of Differentiation",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Introduces integration as the reverse of differentiation with basic examples and physical interpretations.",
+        "image": "images/maths2-3.jpg",
+        "file": "notes/maths2-module3-integration.pdf"
+        },
+        {
+        "title": "Module 4: Integration Techniques & Differential Equations",
+        "type": "Notes",
+        "author": "Sahla U",
+        "year": "2025",
+        "description": "Focuses on advanced integration techniques and solving first-order differential equations.",
+        "image": "images/maths2-4.jpg",
+        "file": "notes/maths2-module4-differential-equations.pdf"
         }
         ],
-        "Biochemistry": [
+        "Applied Physics II": [
         {
-        "title": "Biochemistry Fundamentals",
+        "title": "Module 1: Waves Motion and its Applications",
         "type": "Notes",
-        "author": "Dr. Brown",
-        "year": "2023",
-        "description": "Core concepts in biochemistry with clinical correlations.",
-        "image": "https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
-        "file": "notes/biochemistry.pdf"
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Explains wave motion, harmonic motion, resonance, and practical applications of sound and vibrations. Instructor: Assistant Professor in Physics.",
+        "image": "images/physics2-1.jpg",
+        "file": "notes/physics2-module1-waves.pdf"
+        },
+        {
+        "title": "Module 2: Optics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Detailed concepts of reflection, refraction, interference, diffraction, and lens systems.",
+        "image": "images/physics2-2.jpg",
+        "file": "notes/physics2-module2-optics.pdf"
+        },
+        {
+        "title": "Module 3: Electromagnetism",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Covers electric fields, magnetic fields, electromagnetic induction, and AC/DC circuits.",
+        "image": "images/physics2-3.jpg",
+        "file": "notes/physics2-module3-electromagnetism.pdf"
+        },
+        {
+        "title": "Module 4: Modern Physics",
+        "type": "Notes",
+        "author": "Najumunnisa T",
+        "year": "2025",
+        "description": "Introduction to quantum theory, photoelectric effect, atomic models, and nuclear physics.",
+        "image": "images/physics2-4.jpg",
+        "file": "notes/physics2-module4-modern.pdf"
+        }
+        ],
+        "Environmental Science": [
+        {
+        "title": "Module 1: Ecosystem & Terminology",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Covers ecological principles, biotic and abiotic components, and key environmental terms.",
+        "image": "images/evs-1.jpg",
+        "file": "notes/evs-module1-ecosystem.pdf"
+        },
+        {
+        "title": "Module 2: Pollution & Control Measures",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Explains sources, types of pollution, and modern pollution control strategies.",
+        "image": "images/evs-2.jpg",
+        "file": "notes/evs-module2-pollution.pdf"
+        },
+        {
+        "title": "Module 3: Renewable Energy & Harvesting",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Discusses solar, wind, biomass, and other renewable energy sources and harvesting techniques.",
+        "image": "images/evs-3.jpg",
+        "file": "notes/evs-module3-renewable.pdf"
+        },
+        {
+        "title": "Module 4: Solid Waste & Environmental Management",
+        "type": "Notes",
+        "author": "EVS Faculty",
+        "year": "2025",
+        "description": "Focuses on solid waste classification, disposal, recycling, and management systems.",
+        "image": "images/evs-4.jpg",
+        "file": "notes/evs-module4-waste-management.pdf"
+        }
+        ],
+        "FEEE": [
+        {
+        "title": "Module 1: Resistor Combinations & AC Basics",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Explains series/parallel resistor networks, Ohm’s law, and basic alternating current principles.",
+        "image": "images/feee-1.jpg",
+        "file": "notes/feee-module1-resistors.pdf"
+        },
+        {
+        "title": "Module 2: AC Power & Electricity Bill Calculation",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Covers power factor, real/reactive/apparent power and calculating residential electricity bills.",
+        "image": "images/feee-2.jpg",
+        "file": "notes/feee-module2-ac-power.pdf"
+        },
+        {
+        "title": "Module 3: Passive Components & Color Coding",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Introduces capacitors, inductors, resistors and their identification using color codes.",
+        "image": "images/feee-3.jpg",
+        "file": "notes/feee-module3-components.pdf"
+        },
+        {
+        "title": "Module 4: Diodes, Transistors & Logic Gates",
+        "type": "Notes",
+        "author": "FEEE Faculty",
+        "year": "2025",
+        "description": "Basics of PN junction diodes, BJT, and fundamental digital logic gate operations.",
+        "image": "images/feee-4.jpg",
+        "file": "notes/feee-module4-diodes-logic.pdf"
+        }
+        ],
+        "Engineering Workshop - Welding": [
+        {
+        "title": "Welding Trade",
+        "type": "Notes",
+        "author": "Workshop Faculty",
+        "year": "2025",
+        "description": "Covers fundamentals of welding, safety procedures, types of joints, and basic operations used in arc and gas welding.",
+        "image": "images/workshop-welding.jpg",
+        "file": "notes/welding-trade-notes.pdf"
+        }
+        ],
+        "Electronics Tinkering Workshop": [
+        {
+        "title": "Basic Electronics & Prototyping",
+        "type": "Notes",
+        "author": "Workshop Faculty",
+        "year": "2025",
+        "description": "Covers basic components like resistors, capacitors, transistors, breadboarding, circuit building, and troubleshooting techniques.",
+        "image": "images/electronics-tinkering.jpg",
+        "file": "notes/electronics-tinkering-notes.pdf"
         }
         ]
         }
