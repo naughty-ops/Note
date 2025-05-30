@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Carousel Flip Cards</title>
+  <title>Movie Flip Cards Grid</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <!-- Google Fonts for English + Malayalam -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@900&family=Noto+Sans+Malayalam:wght@900&display=swap" rel="stylesheet">
@@ -15,70 +15,98 @@
       font-family: 'Poppins', sans-serif;
     }
     body {
-      background-color: #ffffff;
+      background-color: #f5f5f5;
       color: white;
-      overflow-x: hidden;
+      min-height: 100vh;
     }
 
     nav {
-      margin-top:10px;
+      margin-top: 10px;
       background: #FF00FF;
-      box-shadow: 0 4px 8px rgba(33, 4, 64, 0.3); /* your brand color */
+      box-shadow: 0 4px 8px rgba(33, 4, 64, 0.3);
       padding: 1rem 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
-    
     .logo {
-    font-family: 'Orbitron', 'Noto Sans Malayalam', sans-serif;
-    font-weight: 900;
-    font-size: 2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    background: linear-gradient(135deg, #FFBA00, #FDB095, #E5958E);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-    text-shadow:
-    0 0 10px rgba(255, 186, 0, 0.4),
-    0 0 20px rgba(255, 138, 0, 0.3),
-    0 0 30px rgba(255, 100, 0, 0.2);
-    animation: flicker 2s infinite alternate;
-    display: inline-block;
-    
-    border-radius: 12px;
+      font-family: 'Orbitron', 'Noto Sans Malayalam', sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #FFBA00, #FDB095, #E5958E);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      text-shadow:
+        0 0 10px rgba(255, 186, 0, 0.4),
+        0 0 20px rgba(255, 138, 0, 0.3),
+        0 0 30px rgba(255, 100, 0, 0.2);
+      animation: flicker 2s infinite alternate;
+      display: inline-block;
+      border-radius: 12px;
     }
     
     /* Flicker animation for cinematic feel */
     @keyframes flicker {
-    0% { opacity: 1; }
-    45% { opacity: 0.85; }
-    55% { opacity: 1; }
-    65% { opacity: 0.9; }
-    75% { opacity: 1; }
-    100% { opacity: 0.95; }
+      0% { opacity: 1; }
+      45% { opacity: 0.85; }
+      55% { opacity: 1; }
+      65% { opacity: 0.9; }
+      75% { opacity: 1; }
+      100% { opacity: 0.95; }
     }
     
-
-    .carousel {
-      display: flex;
-      gap: 1.5rem;
+    .movies-container {
       padding: 2rem;
-      overflow-x: auto;
-      scroll-behavior: smooth;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .section-title {
+      color: #333;
+      font-weight: 600;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .movies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    
+    @media (max-width: 768px) {
+      .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .movies-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 1rem;
+      }
     }
 
     .card-container {
       perspective: 1000px;
-      flex: 0 0 220px;
       position: relative;
+      width: 100%;
+      aspect-ratio: 2/3; /* Maintain movie poster aspect ratio */
     }
 
     .card {
       width: 100%;
-      height: 330px;
+      height: 100%;
       border-radius: 15px;
       transform-style: preserve-3d;
       transition: transform 0.8s ease;
@@ -120,11 +148,18 @@
       color: #fff;
       width: 100%;
       text-align: center;
-      font-weight:900;
+      font-weight: 900;
       padding: 0.8rem;
       opacity: 0;
       transition: opacity 0.3s ease;
       font-size: 0.9rem;
+    }
+    
+    @media (max-width: 480px) {
+      .title-overlay {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+      }
     }
 
     .card .back {
@@ -156,6 +191,25 @@
       padding: 0.5rem;
       font-size: 0.85rem;
       margin-bottom: 0.5rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 7;
+      -webkit-box-orient: vertical;
+    }
+    
+    @media (max-width: 768px) {
+      .back-content {
+        -webkit-line-clamp: 5;
+        font-size: 0.75rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .back-content {
+        -webkit-line-clamp: 4;
+        font-size: 0.7rem;
+      }
     }
     
     .watch-btn {
@@ -179,88 +233,190 @@
       background: #f40612;
       transform: scale(1.05);
     }
-
-    @media (max-width: 600px) {
-      .carousel {
-        gap: 1rem;
-        padding: 1rem;
-      }
-
-      .card-container {
-        flex: 0 0 65vw;
-      }
-    }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo">Jസിനിമ</div>
+    <div class="logo">Yസിനിമ</div>
   </nav>
-  <section class="carousel">
-    <!-- Card 1 with specific YouTube link -->
-    <div class="card-container">
-      <div class="card">
-        <div class="front" style="background-image: url('thudarum-front.jpg')">
-          <div class="title-overlay">Thudarum</div>
-        </div>
-        <div class="back">
-          <img src="thudarum-back.jpg" alt="Movie background" class="back-image">
-          <div class="back-content">
-             In the quiet hill town of Ranni, humble taxi driver Shanmughan treasures one thing above all - his aging Ambassador car. When fate puts him to the test, he must prove just how far he'll go for what he holds dear....
+  
+  <div class="movies-container">
+    <h2 class="section-title">Latest Releases</h2>
+    <div class="movies-grid">
+      <!-- Card 1 with specific YouTube link -->
+      <div class="card-container">
+        <div class="card">
+          <div class="front" style="background-image: url('thudarum-front.jpg')">
+            <div class="title-overlay">Thudarum</div>
           </div>
-          <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvOQ==/video.mkv&meta=aVYiVbH6JfDgUWhvbCGXf60C4QFDlTrLu0pum6IWhGFQEUrvTd0U70IYfqh62uznfO3TrbfDVC7duA8uKAf9dtYhMRuaPIrhoDuaGFzvF0pT91SDhWXHopTK7CpeTJOCkhWZUQXUyKFVqI6hrduWGhY9IaLteDTJ2FYqHzMhGVf0Qc7h6ZcG4soVFQrsoEs74fA0f1gfX3FrJU9qTnDUeYI99SPWTVGIvvS6mtr4TahJwHWzFVPuJqt7wHdYureUbyFRPF1DTLehp3hJMCeLSpWue0iXKiQ3hPOHjAs9wSyKhVqfwGF4LSaYT7DCn8fKPhwds4Jf6PFyYSqPhvZcpOf9mIeRi1ohPyHYwsk1SwmIlntDzsZZTozcOEU1eUamskEfWoF7XI7ZFLv" target="_blank" class="watch-btn">▶ Watch Now</a>
+          <div class="back">
+            <img src="thudarum-back.jpg" alt="Movie background" class="back-image">
+            <div class="back-content">
+              In the quiet hill town of Ranni, humble taxi driver Shanmughan treasures one thing above all - his aging Ambassador car. When fate puts him to the test, he must prove just how far he'll go for what he holds dear....
+            </div>
+            <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvOQ==/video.mkv&meta=aVYiVbH6JfDgUWhvbCGXf60C4QFDlTrLu0pum6IWhGFQEUrvTd0U70IYfqh62uznfO3TrbfDVC7duA8uKAf9dtYhMRuaPIrhoDuaGFzvF0pT91SDhWXHopTK7CpeTJOCkhWZUQXUyKFVqI6hrduWGhY9IaLteDTJ2FYqHzMhGVf0Qc7h6ZcG4soVFQrsoEs74fA0f1gfX3FrJU9qTnDUeYI99SPWTVGIvvS6mtr4TahJwHWzFVPuJqt7wHdYureUbyFRPF1DTLehp3hJMCeLSpWue0iXKiQ3hPOHjAs9wSyKhVqfwGF4LSaYT7DCn8fKPhwds4Jf6PFyYSqPhvZcpOf9mIeRi1ohPyHYwsk1SwmIlntDzsZZTozcOEU1eUamskEfWoF7XI7ZFLv" target="_blank" class="watch-btn">▶ Watch Now</a>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Card 2 with specific YouTube link -->
-    <div class="card-container">
-      <div class="card">
-        <div class="front" style="background-image: url('retro-front.jpg')">
-          <div class="title-overlay">Retro</div>
-        </div>
-        <div class="back">
-          <img src="retro-back.jpg" alt="Movie background" class="back-image">
-          <div class="back-content">
-            A psychological thriller unraveling the haunting past of a woman who hears voices from another world.
+      
+      <!-- Card 2 with specific YouTube link -->
+      <div class="card-container">
+        <div class="card">
+          <div class="front" style="background-image: url('retro-front.jpg')">
+            <div class="title-overlay">Retro</div>
           </div>
-          <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMTA=/video.mkv&meta=yg1HDEUnEf6PUAhGATRzfmqCGgHYwfEhZF18UJ4TlPUQqIGfyhRZH4pF8dh2dFp9tDOT36i6MhkLIphzVHPMTyYCvMT43CXhDLUmKC8hLdSYyfXnsJQFq0TWhPLuJMfWnu6eIdhjztdgtnLIXZIjPh3YHehbQUJeUbAFWKInhG1hLjIlot8ETe6F6ztdlhMpTjqUeh62cLrslWFX3s7QsMXf7vf9XfOyF1OU9RTKnUkwIZZSl2TLmI11SXKteDTyhWDH92FYLu0jIreHo2uPrUQ2f8vF3wTX8hEmhw6CRwSAquz0iYeilmho0HKvslOS4EhQEfVbF9oSRaTebCb6fwzhbqsjXf4YF7jS2Zh8mcGAfyXIzZioDhQEHVosn9SrOI64tjyseeTrkcVzUJXUgnsXwfMVFZpIrZtWk" target="_blank" class="watch-btn">▶ Watch Now</a>
+          <div class="back">
+            <img src="retro-back.jpg" alt="Movie background" class="back-image">
+            <div class="back-content">
+              A psychological thriller unraveling the haunting past of a woman who hears voices from another world.
+            </div>
+            <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMTA=/video.mkv&meta=yg1HDEUnEf6PUAhGATRzfmqCGgHYwfEhZF18UJ4TlPUQqIGfyhRZH4pF8dh2dFp9tDOT36i6MhkLIphzVHPMTyYCvMT43CXhDLUmKC8hLdSYyfXnsJQFq0TWhPLuJMfWnu6eIdhjztdgtnLIXZIjPh3YHehbQUJeUbAFWKInhG1hLjIlot8ETe6F6ztdlhMpTjqUeh62cLrslWFX3s7QsMXf7vf9XfOyF1OU9RTKnUkwIZZSl2TLmI11SXKteDTyhWDH92FYLu0jIreHo2uPrUQ2f8vF3wTX8hEmhw6CRwSAquz0iYeilmho0HKvslOS4EhQEfVbF9oSRaTebCb6fwzhbqsjXf4YF7jS2Zh8mcGAfyXIzZioDhQEHVosn9SrOI64tjyseeTrkcVzUJXUgnsXwfMVFZpIrZtWk" target="_blank" class="watch-btn">▶ Watch Now</a>
+          </div>
         </div>
       </div>
-    </div>
-    
-    <!-- Card 3 -->
-    <div class="card-container">
+      
+      <!-- Card 3 -->
+      <div class="card-container">
       <div class="card">
-        <div class="front" style="background-image: url('https://via.placeholder.com/220x330?text=Galaxy+Drift')">
-          <div class="title-overlay">Galaxy Drift</div>
-        </div>
-        <div class="back">
-          <img src="https://via.placeholder.com/220x330?text=Back+3" alt="Movie background" class="back-image">
-          <div class="back-content">
-            A sci-fi space adventure where a rogue pilot joins a mission to save humanity from a collapsing star.
-          </div>
-          <a href="#" class="watch-btn">▶ Watch Now</a>
-        </div>
+      <div class="front" style="background-image: url('abhilasham-front.jpg')">
+      <div class="title-overlay">Abhilasham</div>
       </div>
-    </div>
-    
-    <!-- Card 4 -->
-    <div class="card-container">
+      <div class="back">
+      <img src="abhilasham-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      Two childhood friends separated by time and unspoken feelings reunite in their hometown. Abhilash sees a second chance with Sherin, but the past casts a long shadow over their present.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjM=/video.mkv&meta=Re9H2aFMahJqughOmt0gu3nhgdHLRtebfjZSd8TgVf0KimhyF2YU6yT46U6XIzf4hzLHvzfJ1tRyfAzcYPfkJsP4fdAIah9PH2VTqWCraTzjCrhZ6HVjTylCk9HamhphKWSQRf7ks3VFwgSEDCJh6ku0qfvlu7pIohG9F4GFWLskEhaVIV3tkeTLaF7Wt0Ph1nT4LcphqacEqsjVFw8szrseafgEfkef1ZFdGU6XTWqUmAIWWSJETPEILLS9jteKTwhnpHMPfvauy9IgdF39uynUn1F27F4dTmzhKnh30CbLSVvuDmi4yi3oh9JH0PsMESpmh6ZfMyFk1Sv6TZ3CYLf6khmrsvRf0MFzvSp8hQJcPjfeyInEiRehmnHZ3sl7SDEIj8tbEsllTKqc69UzMUo1sYkfE6F0mInJhXW" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="card-container">
       <div class="card">
-        <div class="front" style="background-image: url('https://via.placeholder.com/220x330?text=Midnight+Run')">
-          <div class="title-overlay">Midnight Run</div>
-        </div>
-        <div class="back">
-          <img src="https://via.placeholder.com/220x330?text=Back+4" alt="Movie background" class="back-image">
-          <div class="back-content">
-            A high-speed chase through the city as a getaway driver tries to outrun both cops and criminals.
-          </div>
-          <a href="#" class="watch-btn">▶ Watch Now</a>
-        </div>
+      <div class="front" style="background-image: url('marana-mass-front.jpg')">
+      <div class="title-overlay">Marana Mass</div>
       </div>
-    </div>
-  </section>
+      <div class="back">
+      <img src="marana-mass-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      When a serial killer strikes in Kerala, local troublemaker Luke becomes the prime suspect. A fateful night bus journey connects him with a conductor and driver, leading to unexpected developments.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjQ=/video.mkv&meta=7WyhGei7PFGXilhqGHWehqmuDLHjOF1XsrpInrfZMFKgFnhKFQ1UgETA0U4RI2fKh32SY0fMrTd2foOt1KTJ3iOwfGLH3h6kHKLTrZCE0T6JHqhkWHA3TJKC0Ac1nsGh3nS6QfrVs8aFd9HlzCyhMQuWDfgvuwKI0h1VFY0Fmys2Yh2dI4OtknTKzFP4UanhkvUKqFyh0Zcrbs6AF18sZXsJzfkZfQ9fgPFXlUDkT7XUrEIqqSVLT16IrrSqetp1T6hzjHD2fEpu6XIW6FP4upwseLTwPFoWTG8hYjhwqCjES12uRdi9eie3hX3H8ms4bSeXheZfZAFqOSvGTXJC16fPOhvjsg4fkQF1lSjWhwXcZ8fpjIvAia9hwvHoJsGWSzJI1otv2sWWTD9c8DUodUajs8yfkpFYmIGmspy" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 5 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('bromance-front.jpg')">
+      <div class="title-overlay">Bromance</div>
+      </div>
+      <div class="back">
+      <img src="bromance-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      Binto teams up with his brother's friends for a thrilling adventure to find him, leading to unexpected twists, discoveries, and unforgettable moments.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjU=/video.mkv&meta=lXmSD4UK9T6yUAhp2sL1hwQfE2hJzCmZFVXu8ViohvFb4UQVT6lUedIRfQh3Xi8zi1AUEWhpAtdjfzRse6f9ytOhdwHX2TkVCrpTJGS4hoLHyETOYC8Kt9Mhnh0gF64fyPsbli3hQwSrwfpjs0MFYRSmeCJhM2uGwflkuk7IPhVPh3QI9EtaeT0RFQpUgvhV1fZzf0hAVcmjsRLFlksLgsmvfwzfdMfzXFa8UOXTe1UaOIQQSGmTq4IwwS9mtEAT2h9pHnbfvbuKmIm2FgWu36IXEsaPF71ToqhGOh72CwdSWdu0Kie2iQohO6HZmsAkSaDhmofkPF8zSD9TnkCDpf7WhYZsRwfYEFKESJAh7WcGDfYdI4liXZhzjHrkswoS9yIzatKLsZZTzbcX7UPlUbnsnJfWjFaYIRlUyQ" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      <!-- Card 6 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('veera-dheera-sooran-front.jpg')">
+      <div class="title-overlay">Veera Dheera Sooran: Part 2</div>
+      </div>
+      <div class="back">
+      <img src="veera-dheera-sooran-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      Kaali, a provision store owner and a loving husband and father, whose involvement in a dangerous crime network and his mysterious mission forms the rest of the story.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjY=/video.mkv&meta=vgXHpjH0Wiwmt7hE4F2qSD1FjMC3atLhZJFOgf7LiVzczWuQXCyhv7f2mCALFXKiGvhJAfwheXsROfA3UyWh4hoJUqhjFloUb1T1yU2vIKfJh0MHjpfzJsLof6Zs4ecmLsl6fvKIAh3wHe2T9OCJ3TLdC6h3ZSmJhEXIM0t83SWaFzpUEKhw0CYVs3hdZc0QsXVFE0s6as7afKpfXwf6aF72UkRT1nU4DIjjSDpTG7I77SZotPMTWhbEHGbf9yuemIpWfdnuAPTwMCa6F6QTRDhoPhzkCV7S0ZuR1iqYijMhokHnes6MSedhM3fPkFYvSJ9TqrCMkfpyhLpsekfQzFKYSLvhJlc9WfGgImQiQahYmHqwsVGSa9I8wtdlsQQTbDcADUeAUQLsalfELF4wI3efvE" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 7 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('empuraan-front.jpg')">
+      <div class="title-overlay">L2: Empuraan</div>
+      </div>
+      <div class="back">
+      <img src="empuraan-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      The journey of Stephen Nedumpally, a man leading a double life as Khureshi Ab'raam, an enigmatic leader of a powerful global crime syndicate.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjc=/video.mkv&meta=ZG4TJAubXfmRtbhLoTjoULhapfo0I1AIRKsVkueZfDpcJkH3hKFZQUJoTG4UKEIwfKhVgH8guqos72cRqIYwfKgS0yhZ2IRVSPhgGSv4fdXs66SGbFp6TGhMmHgYT0QCbJTEnCbhmFLYF21F4caKIY2hpvIKotLjTVvFzWtpRhK1Fk7HKh4PcbesoeFg4sybsGafgEf6ZfR8FnoU8WTzWUkmIOOSqrTroI00SDXtGzTDh14HKEfADuakIjofm4uOPUVJTZKFG6TlJhE9hDJCv3S4KuEKikyipYh7RH46swqS2KhPnfX8F1DSzyTDoCk8fnGhg6s82feWF0GSkZhLXclgfWkIqZiRPhXoHnws0AS8EIgZtdYsQQT3Vc9oUgqUG8s0afRDFg1InMfzK" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 8 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('daveed-front.jpg')">
+      <div class="title-overlay">Daveed</div>
+      </div>
+      <div class="back">
+      <img src="daveed-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      A middle-aged bouncer named Ashiq Abu enters a fierce rivalry with Turkish boxer Sainul Akhmadov, leading him through a personal journey of redemption and determination.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjg=/video.mkv&meta=K08cOQHn4faltXhEQFLrc0LU4KfPzFrZuqhDFOWUPMT8EUjkILfPhQWHA3FylswDfzJtDZieYsaXfXDIvhLPSEDfwZsooS4dFEwTyhlGHQnTw2CK2TXzCbhnjtweuQPIqheFMDF0WFbclmIVPh2MhDmIretzrT0ATbZUqrhW1IynHZhnPcKms6MTovsX6sRYfdafkgfgWFVaULyTaRUJnI11S2QTKqIrrSdAtpJT8hykHgeCoeueDTVrT2ZuqAse2Iz1FZvTqVh8MhvDCMASRruYViV6iQAhjwHJPsw3SzehKWfJRFXmSaYTPGCVGfrWhbEsqYfKMFdRSQahZYcL3fw3IvViXqhvmHYlse2SM1IaetqKsKKTJ1czyUkEUbwsjkf1nF8vIZQUL1" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 9 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('pravinkoodu-shappu-front.jpg')">
+      <div class="title-overlay">Pravinkoodu Shappu</div>
+      </div>
+      <div class="back">
+      <img src="pravinkoodu-shappu-back.jpg" alt="Movie background" class="back-image">
+      <div class="back-content">
+      Follows a murder that happened inside the toddy shop and the hilarious events surrounding the investigation.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMjk=/video.mkv&meta=yg1HDEUnEf6PUAhGDhRvFmafG3IYvHLbsGQIQmh9gfgRuz8iDhPYf1Gt4pF8YU2JfpDiwhMFgAUVoTy3UzMIWfJhvXH4YfensJOfy6tErf4kiepfERcKhq3H9mTPJCJzT6rf8h9oHjeTZ0CqjHp0hWh3rSkqfLEs0hbRuWmfQEuG1hLjIlot8ETe6F63UdlhM0tjVseh62cLrslWFX3s7QsMXf7vf9XfOyF1OU9RTKnUkwIZZSl2TLmI11SXKteDTyhWDH96CYLu0RTrVTo2uP2IQzF8vF3wTX8hEmhw6CRwSAquz0iYeilmho0HKvslOS4EhQEfVbF9oSRaTebCb6fwzhbqsjXf4YF7jS2Zh8mcGAfyXIzZioDhQEHVosn9SrOI64tjyseeTrkcVzUJXUgnsXwfMVFZpIY0UXD" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 10 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('painkili-front.jpg')">
+      <div class="title-overlay">Painkili</div>
+      </div>
+      <div class="back">
+      <img src="painkili-back.jpg" alt="Painkili background" class="back-image">
+      <div class="back-content">
+      The tale of Suku, who fakes insanity to escape the law. While faking insanity, he falls in love.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMzA=/video.mkv&meta=Re9H2aFMahJqughOls0wc3Mig8FLkUedHjlsdbH6hgFzLUPYT2YU6bIYf8hDYHmKfORTvzfJmURyfAOuYPfk3IGhkMHl4T9yC2VTR7CnhpVubgIehVqurWFwh0QtV9uK9IEhpRU3bUwLFKmsJh6WhpZIXRtAzT7bfGrt4AhWeIkyHYhb9cKvsLaF71sPms2Yf3ZflMfzKFEwULETwMUmGI00SWLTYeIDDSdjt6XT8hm8HWQCJAuP1TLwH9QueKT0bCe8Fb6TXyhWkhyRCwbSyeunViD9i4nhmaHKLs3pS7bhpAfz6FdqS3JT9MC04fMphmAs6lfMyFkJS3vhZMcYLf64IG8ivkh0ZHz1s82SQRIm8teVsqqT8lcmkULoUMrsv1fjeFbPIlOCKM" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+      
+      <!-- Card 11 -->
+      <div class="card-container">
+      <div class="card">
+      <div class="front" style="background-image: url('dragon-front.jpg')">
+      <div class="title-overlay">Dragon</div>
+      </div>
+      <div class="back">
+      <img src="dragon-back.jpg" alt="Dragon background" class="back-image">
+      <div class="back-content">
+      After a devastating breakup, troubled student Ragavan abandons his studies and enters the dangerous world of financial fraud, pursuing wealth and power while becoming entangled in escalating conflicts.
+      </div>
+      <a href="https://stream.anshbotzone.com/tg/stream?url=https://link.anshbotzone.com/channel/LTEwMDI2MTM3MzE4OTgvMzE=/video.mkv&meta=oD1tOQHXwfAVIehlOFQefnmf3juQDHPmTphbFmYUqvT8PUOEIlfLhRbHVwfRriY8fb7CQ7fb0sQ0f1Di6h4zH94T1wCQPTA6Cahn4SOQfE0sQvF30TOmcV6UYmFOosDzhqlI8PiRjTJwundU32hyPUb9cQh6OcDwsygFyJs4rsmpfrDfWyf17f13UWLTErUAOIwwSYXTgAIVVSjEtWRTLhqoHzyC6ouldTmbHoeuwYsGMfWAF2pTq7hoJhmwCqXSWbulpi9XiX1hl6HLXsjZS0ZhlzfJ2FjqSrVTYDCZqf87hWVs9MfqrFyzSa2h6ncr2fQvIDGioqhMVHrgsyvSLeI3GtgpsXXTnocneULOUy9slKfnVF6gInDFGM" target="_blank" class="watch-btn">▶ Watch Now</a>
+      </div>
+      </div>
+      </div>
+  
   <script>
     // Flip cards on double tap or double click
     document.querySelectorAll('.card').forEach(card => {
